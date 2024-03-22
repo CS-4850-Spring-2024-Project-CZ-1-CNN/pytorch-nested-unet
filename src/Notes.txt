@@ -1,0 +1,40 @@
+
+#TODO
+# Annotate code
+# Implement general improvement listed in report
+
+archs.py - defines organization of layers
+dataset.py - reads in dataset & creates Dataset object
+...
+
+python train.py --dataset ica --arch NestedUNet --img_ext .png --mask_ext .png --deep_supervision True --epochs 1000
+python val.py --name ica_NestedUNet_woDS
+
+Paper implementation combines U-Net++ with feature pyramid techniques (FP-U-Net++)
+CNN Classifier is InceptionResNetV2
+Lossfunction = (1-Dice) + (1-SoftDiceLoss (dilated)) + L2
+    Dice is measure of magnitudes of pixel count between two images, which must be maximized.
+    Issues of dice:
+        Center arteries are prefered over capillaries, so output must be dialated
+        Dice may not be most helpful during early learning(?). Need to learn more
+Robustness added through random rotation, scaling, Gaussian noise transformation,
+    Gaussian blur transform, brightness multiplicative transform and elastic deform,
+    were applied to increase the sample size. Does this mean redundant data(?)
+Suggested future improvements:
+    Several 2D images or 3D analysis, quantitative coronary angiography (QCA)
+    How would possible improvements realistically work?
+    Multiple 2D images:
+        * Each image could be used to inform the other
+            * Identify angle of images
+            * Can help with removing false positives/negatives as reference may need to be present
+                in other image. Help with uncertain arteries, reinforce major arteries.
+        * Two close images may be related through a shift
+        Issues:
+            * Unclear images may mess up identification in other images.
+            * Perspective issues
+
+Potentially add loss described in paper:
+Combination of:
+       # DSC = 2|y^ && y| / (|y^| + |y|)
+       # DDSC = 2|d(y^) && d(y)| / (d(|y^|) + d(|y))
+       # Loss = (1 - DSC) + (1 - DDSC) + L2
