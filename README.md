@@ -54,7 +54,7 @@ python val.py --name <dataset name>_NestedUNet_woDS
 ```
 
 ## Results
-### ica (96x96)
+### ica (512x512)
 
 Here is the results on ica dataset (96x96) .
 
