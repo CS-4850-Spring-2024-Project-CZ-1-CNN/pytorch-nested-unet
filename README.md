@@ -60,6 +60,6 @@ Here is the results on ica dataset (96x96) .
 
 | Model                           |   IoU   |  Loss   |
 |:------------------------------- |:-------:|:-------:|
-| U-Net                           |  0.839  |  0.365  |
-| Nested U-Net                    |  0.842  |**0.354**|
-| Nested U-Net w/ Deepsupervision |**0.843**|  0.362  |
+| ica_NestedUNet_1000             |  0.839  |  0.365  |
+| ica_NestedUNet_woDS             |  0.842  |**0.354**|
+
