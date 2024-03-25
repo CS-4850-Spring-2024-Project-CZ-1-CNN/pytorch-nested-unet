@@ -26,66 +26,22 @@ conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
 pip install -r requirements.txt
 ```
 
-## Training on [2018 Data Science Bowl](https://www.kaggle.com/c/data-science-bowl-2018) dataset
-1. Download dataset from [here](https://www.kaggle.com/c/data-science-bowl-2018/data) to inputs/ and unzip. The file structure is the following:
-```
-inputs
-└── data-science-bowl-2018
-    ├── stage1_train
-    |   ├── 00ae65...
-    │   │   ├── images
-    │   │   │   └── 00ae65...
-    │   │   └── masks
-    │   │       └── 00ae65...            
-    │   ├── ...
-    |
-    ...
-```
-2. Preprocess.
-```sh
-python preprocess_dsb2018.py
-```
-3. Train the model.
-```sh
-python train.py --dataset dsb2018_96 --arch NestedUNet
-```
-4. Evaluate.
-```sh
-python val.py --name dsb2018_96_NestedUNet_woDS
-```
-### (Optional) Using LovaszHingeLoss
-1. Clone LovaszSoftmax from [bermanmaxim/LovaszSoftmax](https://github.com/bermanmaxim/LovaszSoftmax).
-```
-git clone https://github.com/bermanmaxim/LovaszSoftmax.git
-```
-2. Train the model with LovaszHingeLoss.
-```
-python train.py --dataset dsb2018_96 --arch NestedUNet --loss LovaszHingeLoss
-```
-
-## Training on original dataset
+## Training on ica dataset
 Make sure to put the files as the following structure (e.g. the number of classes is 2):
 ```
 inputs
-└── <dataset name>
+└── <ica>
     ├── images
-    |   ├── 0a7e06.jpg
-    │   ├── 0aab0a.jpg
-    │   ├── 0b1761.jpg
+    |   ├── nj_100_1_LCA_RAO.png
+    │   ├── nj_100_2_LCA_RAO.png
+    │   ├── nj_100_1_LCA_RAO.png
     │   ├── ...
     |
-    └── masks
-        ├── 0
-        |   ├── 0a7e06.png
-        |   ├── 0aab0a.png
-        |   ├── 0b1761.png
-        |   ├── ...
-        |
-        └── 1
-            ├── 0a7e06.png
-            ├── 0aab0a.png
-            ├── 0b1761.png
-            ├── ...
+    └── masks/0
+        ├── nj_100_1_LCA_RAO.png
+        ├── nj_100_2_LCA_RAO.png
+        ├── nj_100_1_LCA_RAO.png
+        ├── ...
 ```
 
 1. Train the model.
@@ -98,9 +54,9 @@ python val.py --name <dataset name>_NestedUNet_woDS
 ```
 
 ## Results
-### DSB2018 (96x96)
+### ica (96x96)
 
-Here is the results on DSB2018 dataset (96x96) with LovaszHingeLoss.
+Here is the results on ica dataset (96x96) .
 
 | Model                           |   IoU   |  Loss   |
 |:------------------------------- |:-------:|:-------:|
