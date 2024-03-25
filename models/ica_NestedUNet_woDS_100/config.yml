@@ -3,7 +3,7 @@ batch_size: 2
 dataset: ica
 deep_supervision: false
 early_stopping: -1
-epochs: 1000
+epochs: 100
 factor: 0.1
 gamma: 0.6666666666666666
 img_ext: .png
@@ -16,7 +16,7 @@ mask_ext: .png
 milestones: 1,2
 min_lr: 1.0e-05
 momentum: 0.9
-name: ica_NestedUNet_woDS
+name: ica_NestedUNet_woDS_100
 nesterov: false
 num_classes: 1
 num_workers: 4

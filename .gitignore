@@ -141,9 +141,7 @@ cython_debug/
 .vscode
 
 LovaszSoftmax
-# inputs/*
-# models/*
-# outputs/*
-# CZ-1; Need to import these models after training
+inputs/*
+outputs/*
 
 !gitkeep
