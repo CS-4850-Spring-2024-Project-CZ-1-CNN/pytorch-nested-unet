@@ -3,11 +3,6 @@
 
 This repository contains code for a image segmentation model based on [UNet++: A Nested U-Net Architecture for Medical Image Segmentation](https://arxiv.org/abs/1807.10165) implemented in PyTorch.
 
-[**NEW**] Add support for multi-class segmentation dataset.
-
-[**NEW**] Add support for PyTorch 1.x.
-
-
 ## Requirements
 - PyTorch 1.x or 0.41
 
